@@ -1,19 +1,39 @@
 {
-    "name": "@environment-safe/template",
-    "version": "0.0.2",
-    "main": "dist/index.cjs",
-    "module": "src/index.mjs",
-    "homepage": "https://github.com/environment-safe/template",
+    "name": "@ansi-art/art",
+    "version": "3.0.0-alpha4",
+    "homepage": "https://github.com/ansi-art/art",
     "description": "A template for buildless module development",
     "keywords": [],
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
     "contributors": [],
+    "type": "module",
+    "main": "dist/index.mjs",
+    "module": "src/index.mjs",
+    "commonjs": "dist/index.cjs",
+    "exports": {
+        ".": {
+            "import": "./src/index.mjs",
+            "require": "./dist/index.cjs"
+        },
+        "./src/ansi-art.mjs": {
+            "import": "./src/file-saver.mjs",
+            "require": "./dist/file-saver.cjs"
+        },
+        "./dist/ansi-art.cjs": {
+            "import": "./src/file-saver.mjs",
+            "require": "./dist/file-saver.cjs"
+        },
+        "./index.js": {
+            "import": "./src/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
     "repository": {
         "type": "git",
-        "url": "git@github.com:environment-safe/template.git"
+        "url": "git@github.com:ansi-art/art.git"
     },
     "bugs": {
-        "url": "https://github.com/environment-safe/template/issues"
+        "url": "https://github.com/ansi-art/art/issues"
     },
     "moka": {
         "firefox": {
@@ -80,6 +100,11 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "browser-or-node": "^2.1.1"
+        "@ansi-art/async-context": "^3.0.0-alpha4",
+        "@ansi-art/color": "^3.0.0-alpha4",
+        "@ansi-art/tools": "^3.0.0-alpha4",
+        "@environment-safe/file": "^0.3.2",
+        "browser-or-node": "^2.1.1",
+        "kitchen-sync": "^2.0.0"
     }
 }
